@@ -15,17 +15,21 @@ public class CameraSettings : MonoBehaviour
     {
         
     }
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             camA.Priority = 10;
             camB.Priority = 20;
         }  
-        else
+    }    
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
         {
             camA.Priority = 20;
             camB.Priority = 10;
-        }
-    }    
+        }  
+       
+    }
 }
